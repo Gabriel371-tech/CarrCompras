@@ -3,7 +3,7 @@ import { fetchProdutos, Produto } from '@/app/services/api';
 import ProductCard from '@/components/ProductCard';
 import { ThemedText } from '@/components/themed-text';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
 
 export default function ProdutosScreen() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -24,16 +24,25 @@ export default function ProdutosScreen() {
   if (loading) return <ActivityIndicator style={{ marginTop: 40 }} />;
 
   return (
-    <View style={styles.container}>
-      <ThemedText type="title">Produtos</ThemedText>
-      <FlatList
-        data={produtos}
-        keyExtractor={(i) => String(i.id)}
-        renderItem={({ item }) => <ProductCard product={item} onAdd={addItem} />}
-        contentContainerStyle={{ paddingTop: 12 }}
-      />
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <ThemedText type="title" style={{ marginBottom: 12 }}>
+        Produtos
+      </ThemedText>
+
+      {produtos.map((item) => (
+        <ProductCard
+          key={item.id}
+          product={item}
+          onAdd={addItem}
+        />
+      ))}
+    </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({ container: { padding: 12 } });
+const styles = StyleSheet.create({
+  container: {
+    padding: 12,
+    paddingBottom: 50,
+  },
+});

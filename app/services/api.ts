@@ -1,4 +1,4 @@
-export const BIN_ID = '692a324b43b1c97be9cba80b';
+export const BIN_ID = '6932161243b1c97be9d868f0';
 export const BIN_SECRET = '$2a$10$sV.w2uJ6HwkguXs2vwUM4u15GSm0E5DTYrU3f35WeRaWAA2Z2tGEO';
 
 export type Produto = {
