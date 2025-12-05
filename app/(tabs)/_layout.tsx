@@ -26,7 +26,8 @@ export default function TabLayout() {
         options={{
           title: 'Produtos',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="cart-outline" size={20} />
+            <Ionicons name="pricetags-outline" size={20} />
+
           ),
         }}
       />
@@ -36,7 +37,7 @@ export default function TabLayout() {
         options={{
           title: 'Carrinho',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="pricetags-outline" size={20} />
+            <Ionicons name="cart-outline" size={20} />
           ),
         }}
       />
